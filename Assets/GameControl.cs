@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class GameControl : MonoBehaviour
 {
     private static GameObject whoWinsText, player1MoveText, player2MoveText;
-
+    
     private static GameObject player1, player2;
 
     public static int diceSideThrown = 0;
@@ -26,7 +26,7 @@ public class GameControl : MonoBehaviour
         player2.GetComponent<FollowThePath>().moveAllowed = false;
 
         whoWinsText.gameObject.SetActive(false);
-        player1MoveText.gameObject.SetActive(false);
+        player1MoveText.gameObject.SetActive(true);
         player2MoveText.gameObject.SetActive(false);
     }
 
@@ -37,7 +37,7 @@ public class GameControl : MonoBehaviour
 
             player1.GetComponent<FollowThePath>().moveAllowed = false;
             player1MoveText.gameObject.SetActive(false);
-            player2MoveText.gameObject.SetActive(false);
+            player2MoveText.gameObject.SetActive(true);
             player1StartWaypoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
 
         }
@@ -47,14 +47,14 @@ public class GameControl : MonoBehaviour
 
             player2.GetComponent<FollowThePath>().moveAllowed = false;
             player2MoveText.gameObject.SetActive(false);
-            player1MoveText.gameObject.SetActive(false);
+            player1MoveText.gameObject.SetActive(true);
             player2StartWaypoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
         }
 
         if (player1.GetComponent<FollowThePath>().waypointIndex ==
             player1.GetComponent<FollowThePath>().waypoints.Length)
         {
-            whoWinsText.gameObject.SetActive(false);
+            whoWinsText.gameObject.SetActive(true);
             player1MoveText.gameObject.SetActive(false);
             player2MoveText.gameObject.SetActive(false);
             whoWinsText.GetComponent<Text>().text = "Player 1 wins";
@@ -64,7 +64,7 @@ public class GameControl : MonoBehaviour
         if (player2.GetComponent<FollowThePath>().waypointIndex ==
             player2.GetComponent<FollowThePath>().waypoints.Length)
         {
-            whoWinsText.gameObject.SetActive(false);
+            whoWinsText.gameObject.SetActive(true);
             player1MoveText.gameObject.SetActive(false);
             player2MoveText.gameObject.SetActive(false);
             whoWinsText.GetComponent<Text>().text = "Player 2 wins";

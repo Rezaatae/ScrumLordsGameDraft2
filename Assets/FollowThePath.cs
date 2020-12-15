@@ -14,7 +14,7 @@ public class FollowThePath : MonoBehaviour
     public bool moveAllowed = false;
 
     //Use this for initialization
-    private void Start()
+    public void Start()
     {
         transform.position = waypoints[waypointIndex].transform.position;
     }
